@@ -4,12 +4,7 @@
   "installCommand": "exit 0",
   "outputDirectory": ".",
   "cleanUrls": true,
-  "rewrites": [
-    {
-      "source": "/((?!_next/|brand/|pairs/|coins/|icon.*|og.*).*)",
-      "destination": "/index.html"
-    }
-  ],
+  "trailingSlash": false,
   "headers": [
     {
       "source": "/_next/static/(.*)",

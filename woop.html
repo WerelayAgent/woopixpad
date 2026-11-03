@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en" class="__variable_d8ebd1 __variable_d46058 __variable_571da3">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>$WOOPIXPAD Token — woopixpad</title>
+  <meta name="description" content="Official token of woopixpad multi-pair protocol on Solana."/>
+  <meta property="og:title" content="$WOOPIXPAD Token — woopixpad"/>
+  <meta property="og:description" content="Official token of woopixpad multi-pair protocol on Solana."/>
+  <meta property="og:site_name" content="woopixpad"/>
+  <meta property="og:image" content="/og.png"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:site" content="@woopixpad"/>
+  <meta name="theme-color" content="#04070d"/>
+  
+<link rel="preload" href="/_next/static/media/103fc5fac08dcb15-s.p.woff2" as="font" crossorigin="" type="font/woff2"/>
+<link rel="preload" href="/_next/static/media/558ca1a6aa3cb55e-s.p.woff2" as="font" crossorigin="" type="font/woff2"/>
+<link rel="preload" href="/_next/static/media/e4af272ccee01ff0-s.p.woff2" as="font" crossorigin="" type="font/woff2"/>
+<link rel="preload" as="image" href="/brand/woopixpad-sm.webp"/>
+<link rel="stylesheet" href="/_next/static/css/033575cf85a6c5d0.css"/>
+<link rel="stylesheet" href="/_next/static/css/2e6179a677fa8d7e.css"/>
+<link rel="icon" href="/icon.png?6d78aff5fa163d78" type="image/png" sizes="256x256"/>
+
+  
+<style>
+  /* Toast Notification */
+  .woop-toast {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(13, 17, 28, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    color: #f5f7fa;
+    padding: 12px 18px;
+    border-radius: 14px;
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.6), 0 0 20px rgba(178, 162, 255, 0.15);
+    font-size: 13px;
+    font-weight: 500;
+    opacity: 0;
+    transform: translateY(12px) scale(0.96);
+    pointer-events: none;
+    transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .woop-toast.is-show {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+  }
+  
+  /* Modal Overlay */
+  .woop-modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9990;
+    background: rgba(4, 7, 13, 0.8);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+  }
+  .woop-modal-overlay.is-open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .woop-modal-card {
+    background: #090e17;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(199, 194, 255, 0.08);
+    border-radius: 20px;
+    width: 100%;
+    max-width: 480px;
+    transform: scale(0.95);
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .woop-modal-overlay.is-open .woop-modal-card {
+    transform: scale(1);
+  }
+
+  /* Mega menu dropdown */
+  .woop-dropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    width: 420px;
+    background: #090e17;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(178, 162, 255, 0.1);
+    border-radius: 16px;
+    padding: 12px;
+    display: none;
+    z-index: 50;
+  }
+  .woop-dropdown.is-open {
+    display: block;
+    animation: fadeInDrop 0.18s ease-out forwards;
+  }
+  @keyframes fadeInDrop {
+    from { opacity: 0; transform: translateY(-6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Mobile Drawer */
+  .woop-mobile-drawer {
+    position: fixed;
+    inset: 0;
+    z-index: 9995;
+    background: #04070d;
+    display: none;
+    flex-direction: column;
+    padding: 24px;
+    overflow-y: auto;
+  }
+  .woop-mobile-drawer.is-open {
+    display: flex;
+  }
+</style>
+
+</head>
+<body class="bg-[#04070d] text-silver-200 antialiased selection:bg-mint-500/20 selection:text-mint-200 min-h-screen flex flex-col">
+  
+<header class="sticky top-0 z-40">
+  <div class="glass-bar">
+    <div class="flex h-14 items-center gap-2 px-3 sm:h-16 sm:gap-3 sm:px-6 lg:px-8">
+      <a class="shrink-0" aria-label="woopixpad home" href="/">
+        <span class="flex items-center gap-2">
+          <img src="/brand/woopixpad-sm.webp" alt="woopixpad" width="160" height="93" class="object-contain h-6 w-auto"/>
+          <span class="font-display text-lg font-semibold tracking-tight text-silver-50">woopixpad</span>
+        </span>
+      </a>
+      <nav class="ml-3 hidden items-center gap-0.5 lg:flex" aria-label="Main">
+        <a class="flex h-10 items-center rounded-xl px-3.5 text-sm transition-colors text-silver-400 hover:text-silver-50" href="/coins">Coins</a>
+        <a class="flex h-10 items-center rounded-xl px-3.5 text-sm transition-colors text-silver-400 hover:text-silver-50" href="/pulse">Pulse</a>
+        <a class="flex h-10 items-center rounded-xl px-3.5 text-sm transition-colors text-silver-400 hover:text-silver-50" href="/docs/api">API</a>
+        <a class="flex h-10 items-center rounded-xl px-3.5 text-sm transition-colors text-silver-50 bg-white/[0.08]" href="/woop">$WOOPIXPAD</a>
+        
+        <!-- Explore Menu -->
+        <div class="relative">
+          <button id="btn-explore" type="button" class="flex h-10 items-center gap-1 rounded-xl px-3.5 text-sm transition-colors text-silver-400 hover:text-silver-50">
+            Explore
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down size-3.5"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div id="dropdown-explore" class="woop-dropdown">
+            <a href="/coins" class="flex items-center gap-3 p-2.5 rounded-xl hover:bg-white/[0.06] transition-colors">
+              <span class="grid size-9 place-items-center rounded-lg bg-white/5 text-silver-300 font-mono text-sm">🪙</span>
+              <div><p class="text-sm font-semibold text-silver-50">All Coins</p><p class="text-xs text-silver-400">Most active, new and graduated</p></div>
+            </a>
+            <a href="/pairs" class="flex items-center gap-3 p-2.5 rounded-xl hover:bg-white/[0.06] transition-colors">
+              <span class="grid size-9 place-items-center rounded-lg bg-white/5 text-silver-300 font-mono text-sm">🔗</span>
+              <div><p class="text-sm font-semibold text-silver-50">Multi-Pairs</p><p class="text-xs text-silver-400">Coins paired with SOL, BTC, Gold, Memes</p></div>
+            </a>
+            <a href="/leaderboard" class="flex items-center gap-3 p-2.5 rounded-xl hover:bg-white/[0.06] transition-colors">
+              <span class="grid size-9 place-items-center rounded-lg bg-white/5 text-silver-300 font-mono text-sm">🏆</span>
+              <div><p class="text-sm font-semibold text-silver-50">Leaderboard</p><p class="text-xs text-silver-400">Top promoters & referred volume</p></div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Earn Menu -->
+        <div class="relative">
+          <button id="btn-earn" type="button" class="flex h-10 items-center gap-1 rounded-xl px-3.5 text-sm transition-colors text-silver-400 hover:text-silver-50">
+            Earn
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down size-3.5"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div id="dropdown-earn" class="woop-dropdown">
+            <a href="/portfolio" class="flex items-center gap-3 p-2.5 rounded-xl hover:bg-white/[0.06] transition-colors">
+              <span class="grid size-9 place-items-center rounded-lg bg-mint-500/10 text-mint-300 font-mono text-sm">💰</span>
+              <div><p class="text-sm font-semibold text-silver-50">Hold & Earn</p><p class="text-xs text-silver-400">Get paid on every trade, claim rewards</p></div>
+            </a>
+            <a href="/launch" class="flex items-center gap-3 p-2.5 rounded-xl hover:bg-white/[0.06] transition-colors">
+              <span class="grid size-9 place-items-center rounded-lg bg-azure-500/10 text-azure-300 font-mono text-sm">🚀</span>
+              <div><p class="text-sm font-semibold text-silver-50">Launch a Coin</p><p class="text-xs text-silver-400">0.75% of every trade is yours</p></div>
+            </a>
+            <a href="/creator" class="flex items-center gap-3 p-2.5 rounded-xl hover:bg-white/[0.06] transition-colors">
+              <span class="grid size-9 place-items-center rounded-lg bg-white/5 text-silver-300 font-mono text-sm">📊</span>
+              <div><p class="text-sm font-semibold text-silver-50">Creator Portal</p><p class="text-xs text-silver-400">Fees, holders and curve locks</p></div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Learn Menu -->
+        <div class="relative">
+          <button id="btn-learn" type="button" class="flex h-10 items-center gap-1 rounded-xl px-3.5 text-sm transition-colors text-silver-400 hover:text-silver-50">
+            Learn
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down size-3.5"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div id="dropdown-learn" class="woop-dropdown">
+            <a href="/docs" class="flex items-center gap-3 p-2.5 rounded-xl hover:bg-white/[0.06] transition-colors">
+              <span class="grid size-9 place-items-center rounded-lg bg-white/5 text-silver-300 font-mono text-sm">📖</span>
+              <div><p class="text-sm font-semibold text-silver-50">Documentation</p><p class="text-xs text-silver-400">How woopixpad works, architecture</p></div>
+            </a>
+            <a href="/docs/traders" class="flex items-center gap-3 p-2.5 rounded-xl hover:bg-white/[0.06] transition-colors">
+              <span class="grid size-9 place-items-center rounded-lg bg-white/5 text-silver-300 font-mono text-sm">⚡</span>
+              <div><p class="text-sm font-semibold text-silver-50">Traders Guide</p><p class="text-xs text-silver-400">Fair Blocks, Exit Queue & anti-sniping</p></div>
+            </a>
+            <a href="/docs/fees" class="flex items-center gap-3 p-2.5 rounded-xl hover:bg-white/[0.06] transition-colors">
+              <span class="grid size-9 place-items-center rounded-lg bg-white/5 text-silver-300 font-mono text-sm">⚖️</span>
+              <div><p class="text-sm font-semibold text-silver-50">Fee Structure</p><p class="text-xs text-silver-400">Every fee and who gets paid</p></div>
+            </a>
+          </div>
+        </div>
+      </nav>
+
+      <div class="flex-1"></div>
+
+      <!-- Search Trigger -->
+      <button id="search-trigger" type="button" aria-label="Search coins, pairs and wallets" class="hidden h-10 w-56 items-center gap-2.5 rounded-xl bg-white/[0.04] px-3 text-sm text-silver-500 ring-1 ring-inset ring-white/[0.08] transition-colors hover:bg-white/[0.07] hover:text-silver-300 md:flex xl:w-72">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search size-4 shrink-0"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+        <span class="flex-1 truncate text-left">Search coins, pairs</span>
+        <kbd class="num shrink-0 rounded-md bg-white/[0.06] px-1.5 py-0.5 text-[10px] text-silver-400">Ctrl K</kbd>
+      </button>
+
+      <!-- Launch CTA Button -->
+      <a class="relative select-none items-center justify-center whitespace-nowrap transition-all duration-200 disabled:pointer-events-none disabled:opacity-45 bg-silver-50 text-ink-950 font-semibold hover:shadow-iri active:scale-[0.98] text-[13px] gap-1.5 hidden h-10 rounded-xl px-4 sm:inline-flex" href="/launch">
+        <span>Launch a coin</span>
+      </a>
+
+      <!-- Connect Wallet Button -->
+      <button type="button" id="wallet-connect-btn" class="relative inline-flex select-none items-center justify-center whitespace-nowrap font-medium transition-all duration-200 neon text-silver-50 hover:bg-white/[0.06] text-[13px] gap-1.5 h-10 rounded-xl px-4">
+        <span id="wallet-btn-label">Connect</span>
+      </button>
+
+      <!-- Socials -->
+      <a href="https://x.com/woopixpad" target="_blank" rel="noreferrer" aria-label="woopixpad on X" class="place-items-center rounded-xl bg-white/[0.04] text-silver-50 ring-1 ring-inset ring-white/[0.08] transition-colors hover:bg-white/[0.08] hidden size-10 sm:grid">
+        <svg viewBox="0 0 24 24" class="size-4" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
+      </a>
+      <a href="https://discord.gg/ypqCKAGeXT" target="_blank" rel="noreferrer" aria-label="woopixpad on Discord" class="place-items-center rounded-xl bg-white/[0.04] text-silver-50 ring-1 ring-inset ring-white/[0.08] transition-colors hover:bg-white/[0.08] hidden size-10 sm:grid">
+        <svg viewBox="0 0 24 24" class="size-[18px]" fill="currentColor"><path d="M20.317 4.37a19.79 19.79 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.865-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.74 19.74 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.1 13.1 0 0 1-1.872-.892.077.077 0 0 1-.008-.128c.126-.094.252-.192.372-.291a.074.074 0 0 1 .078-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.3 12.3 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.84 19.84 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.095 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.095 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"></path></svg>
+      </a>
+
+      <!-- Mobile Menu Toggle -->
+      <button id="mobile-menu-btn" type="button" class="grid size-10 place-items-center rounded-xl text-silver-300 hover:bg-white/[0.06] lg:hidden" aria-label="Open menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu size-5"><path d="M4 5h16"/><path d="M4 12h16"/><path d="M4 19h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+  <main class="flex-1">
+    
+<div class="mx-auto max-w-5xl px-4 py-8 sm:px-6 lg:py-12">
+  <div class="text-center mb-8">
+    <img src="/brand/woopixpad.webp" alt="woopixpad" class="w-48 mx-auto mb-4"/>
+    <h1 class="text-3xl sm:text-5xl font-bold tracking-tight text-silver-50 font-display">$WOOPIXPAD Protocol Token</h1>
+    <p class="text-sm text-silver-400 mt-2 max-w-lg mx-auto">
+      The native hold-to-earn token of the multi-pair launchpad. 100% community distributed.
+    </p>
+  </div>
+
+  <!-- Hero CA Component -->
+  <div class="glass rounded-2xl p-6 border border-white/10 shadow-iri max-w-2xl mx-auto mb-12">
+    <div class="flex items-center justify-between pb-3 border-b border-white/5 mb-4">
+      <div class="flex items-center gap-2">
+        <span class="font-bold text-silver-50 text-sm">$WOOPIXPAD</span>
+        <span class="rounded-full bg-mint-500/10 text-mint-300 px-2 py-0.5 text-xs font-mono font-medium">live now on pump.fun</span>
+      </div>
+      <span class="text-xs text-silver-500">Official CA</span>
+    </div>
+
+    <div class="flex flex-col sm:flex-row items-center gap-3">
+      <div class="w-full flex-1 h-11 rounded-xl bg-white/[0.04] border border-white/10 px-3.5 flex items-center justify-between">
+        <span id="woop-ca-text" class="text-xs font-mono text-silver-300">live now on pump.fun</span>
+        <button type="button" id="copy-woop-ca" class="text-xs text-mint-300 hover:text-white font-medium">Copy</button>
+      </div>
+      <a href="https://pump.fun/" target="_blank" rel="noreferrer" class="w-full sm:w-auto h-11 px-6 rounded-xl bg-silver-50 text-ink-950 font-bold text-xs flex items-center justify-center gap-1 hover:shadow-iri transition-all">
+        <span>Buy on pump.fun ↗</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Tokenomics Details -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+    <div class="glass p-6 rounded-2xl border border-white/10">
+      <h3 class="text-sm font-semibold text-silver-100 mb-1">Multi-Pair Fee Share</h3>
+      <p class="text-2xl font-bold text-mint-300 font-mono">0.6%</p>
+      <p class="text-xs text-silver-400 mt-2">Holders receive a share of fees from every coin traded across all curves and WAMM pools.</p>
+    </div>
+
+    <div class="glass p-6 rounded-2xl border border-white/10">
+      <h3 class="text-sm font-semibold text-silver-100 mb-1">Total Supply</h3>
+      <p class="text-2xl font-bold text-silver-50 font-mono">1,000,000,000</p>
+      <p class="text-xs text-silver-400 mt-2">1 Billion fixed supply. No mint authority, contract ownership permanently revoked.</p>
+    </div>
+
+    <div class="glass p-6 rounded-2xl border border-white/10">
+      <h3 class="text-sm font-semibold text-silver-100 mb-1">Automated Buybacks</h3>
+      <p class="text-2xl font-bold text-azure-300 font-mono">0.15%</p>
+      <p class="text-xs text-silver-400 mt-2">Protocol fees are dedicated to liquidity pool depth and automatic market buybacks.</p>
+    </div>
+  </div>
+</div>
+
+  </main>
+  
+<footer class="mt-28 border-t border-[var(--line)]">
+  <div class="mx-auto flex max-w-6xl flex-col gap-6 px-4 py-10 sm:flex-row sm:items-center sm:justify-between sm:px-6">
+    <div class="flex flex-col gap-2">
+      <a aria-label="woopixpad home" href="/">
+        <span class="flex items-center gap-2">
+          <img src="/brand/woopixpad-sm.webp" alt="woopixpad" width="160" height="93" class="object-contain h-6 w-auto"/>
+          <span class="font-display text-lg font-semibold tracking-tight text-silver-50">woopixpad</span>
+        </span>
+      </a>
+      <p class="text-xs text-silver-500">Our own curve and pool: the woopixpad curve and WAMM. Multi-pair fee sharing split on-chain.</p>
+    </div>
+    <nav class="flex flex-wrap gap-x-6 gap-y-2 text-sm text-silver-400">
+      <a class="hover:text-silver-100 transition-colors" href="/docs/traders">Traders</a>
+      <a class="hover:text-silver-100 transition-colors" href="/docs/creators">Creators</a>
+      <a class="hover:text-silver-100 transition-colors" href="/docs/promoters">Promoters</a>
+      <a class="hover:text-silver-100 transition-colors" href="/docs/fees">Fees</a>
+      <a class="hover:text-silver-100 transition-colors" href="/leaderboard">Leaderboard</a>
+      <a class="hover:text-silver-100 transition-colors" href="/docs/api">API</a>
+    </nav>
+  </div>
+</footer>
+
+  
+<!-- Wallet Connect Modal -->
+<div id="wallet-modal" class="woop-modal-overlay">
+  <div class="woop-modal-card p-6">
+    <div class="flex items-center justify-between pb-4 border-b border-white/10">
+      <h3 class="text-base font-semibold text-silver-50">Connect a Solana Wallet</h3>
+      <button id="close-wallet-modal" class="text-silver-400 hover:text-white text-lg leading-none">&times;</button>
+    </div>
+    <p class="mt-3 text-xs text-silver-400">Select your preferred Solana wallet to trade, launch tokens, or claim hold-to-earn rewards.</p>
+    <div class="mt-4 flex flex-col gap-2.5">
+      <button class="wallet-option flex items-center justify-between p-3 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] transition-colors border border-white/5" data-wallet="Phantom">
+        <span class="flex items-center gap-3">
+          <span class="grid size-8 place-items-center rounded-lg bg-[#ab9ff2]/15 text-[#ab9ff2] font-bold text-xs">P</span>
+          <span class="text-sm font-medium text-silver-100">Phantom</span>
+        </span>
+        <span class="text-xs text-silver-500">Popular</span>
+      </button>
+      <button class="wallet-option flex items-center justify-between p-3 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] transition-colors border border-white/5" data-wallet="Solflare">
+        <span class="flex items-center gap-3">
+          <span class="grid size-8 place-items-center rounded-lg bg-[#f39c12]/15 text-[#f39c12] font-bold text-xs">S</span>
+          <span class="text-sm font-medium text-silver-100">Solflare</span>
+        </span>
+        <span class="text-xs text-silver-500">Solana native</span>
+      </button>
+      <button class="wallet-option flex items-center justify-between p-3 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] transition-colors border border-white/5" data-wallet="Backpack">
+        <span class="flex items-center gap-3">
+          <span class="grid size-8 place-items-center rounded-lg bg-[#e74c3c]/15 text-[#e74c3c] font-bold text-xs">B</span>
+          <span class="text-sm font-medium text-silver-100">Backpack</span>
+        </span>
+        <span class="text-xs text-silver-500">xNFT</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Search Modal -->
+<div id="search-modal" class="woop-modal-overlay">
+  <div class="woop-modal-card p-4 max-w-lg">
+    <div class="relative flex items-center">
+      <svg class="absolute left-3.5 size-4 text-silver-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.34-4.34"/></svg>
+      <input id="search-input" type="text" placeholder="Search by coin name, ticker or contract address..." class="w-full bg-white/[0.06] border border-white/10 rounded-xl pl-10 pr-10 py-2.5 text-sm text-silver-100 placeholder:text-silver-500 outline-none focus:border-white/20"/>
+      <button id="close-search-modal" class="absolute right-3 text-silver-400 hover:text-white">&times;</button>
+    </div>
+    <div class="mt-3 max-h-72 overflow-y-auto flex flex-col gap-1.5" id="search-results">
+      <a href="/coin/demo" class="flex items-center justify-between p-2.5 rounded-lg hover:bg-white/[0.05] transition-colors">
+        <div class="flex items-center gap-2.5">
+          <span class="size-8 rounded-full bg-mint-500/20 text-mint-300 grid place-items-center font-bold text-xs">MC</span>
+          <div><p class="text-xs font-semibold text-silver-100">Moon Cat <span class="text-silver-500">$MCAT</span></p><p class="text-[11px] text-silver-400">Paired with Bitcoin (WBTC)</p></div>
+        </div>
+        <span class="text-xs font-mono text-mint-300">$1.81M</span>
+      </a>
+      <a href="/woop" class="flex items-center justify-between p-2.5 rounded-lg hover:bg-white/[0.05] transition-colors">
+        <div class="flex items-center gap-2.5">
+          <span class="size-8 rounded-full bg-azure-500/20 text-azure-300 grid place-items-center font-bold text-xs">WP</span>
+          <div><p class="text-xs font-semibold text-silver-100">woopixpad <span class="text-silver-500">$WOOPIXPAD</span></p><p class="text-[11px] text-silver-400">Official protocol token</p></div>
+        </div>
+        <span class="text-xs font-mono text-mint-300">$3.45M</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- Mobile Drawer -->
+<div id="mobile-drawer" class="woop-mobile-drawer">
+  <div class="flex items-center justify-between pb-6 border-b border-white/10">
+    <a href="/" class="flex items-center gap-2">
+      <img src="/brand/woopixpad-sm.webp" alt="woopixpad" class="h-6 w-auto"/>
+      <span class="font-display text-lg font-semibold text-silver-50">woopixpad</span>
+    </a>
+    <button id="close-mobile-drawer" class="text-silver-400 hover:text-white text-2xl leading-none">&times;</button>
+  </div>
+  <div class="flex flex-col gap-4 py-6">
+    <a href="/launch" class="flex items-center justify-center h-12 rounded-xl bg-silver-50 text-ink-950 font-semibold text-sm">Launch a coin</a>
+    <a href="/coins" class="text-lg font-medium text-silver-200 hover:text-white">Coins Explorer</a>
+    <a href="/pulse" class="text-lg font-medium text-silver-200 hover:text-white">Pulse (Live Feed)</a>
+    <a href="/portfolio" class="text-lg font-medium text-silver-200 hover:text-white">Portfolio & Rewards</a>
+    <a href="/leaderboard" class="text-lg font-medium text-silver-200 hover:text-white">Leaderboard</a>
+    <a href="/woop" class="text-lg font-medium text-silver-200 hover:text-white">$WOOPIXPAD Token</a>
+    <a href="/creator" class="text-lg font-medium text-silver-200 hover:text-white">Creator Portal</a>
+    <a href="/docs" class="text-lg font-medium text-silver-200 hover:text-white">Documentation</a>
+  </div>
+  <div class="mt-auto pt-6 border-t border-white/10 flex items-center gap-4 text-silver-400">
+    <a href="https://x.com/woopixpad" target="_blank" class="hover:text-white">X (Twitter)</a>
+    <a href="https://discord.gg/ypqCKAGeXT" target="_blank" class="hover:text-white">Discord</a>
+  </div>
+</div>
+
+<!-- Toast Container -->
+<div id="woop-toast" class="woop-toast">
+  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6ee7b7" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+  <span id="woop-toast-msg">Copied to clipboard</span>
+</div>
+
+<!-- Interactive Runtime Script -->
+<script>
+(function() {
+  function showToast(msg) {
+    const toast = document.getElementById("woop-toast");
+    const label = document.getElementById("woop-toast-msg");
+    if (!toast || !label) return;
+    label.textContent = msg;
+    toast.classList.add("is-show");
+    setTimeout(() => toast.classList.remove("is-show"), 2500);
+  }
+  window.woopToast = showToast;
+
+  // Dropdown toggles
+  const dropdownPairs = [
+    { btn: "btn-explore", menu: "dropdown-explore" },
+    { btn: "btn-earn", menu: "dropdown-earn" },
+    { btn: "btn-learn", menu: "dropdown-learn" }
+  ];
+
+  dropdownPairs.forEach(({ btn, menu }) => {
+    const b = document.getElementById(btn);
+    const m = document.getElementById(menu);
+    if (!b || !m) return;
+    b.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const isOpen = m.classList.contains("is-open");
+      dropdownPairs.forEach(p => {
+        const other = document.getElementById(p.menu);
+        if (other) other.classList.remove("is-open");
+      });
+      if (!isOpen) m.classList.add("is-open");
+    });
+  });
+
+  document.addEventListener("click", () => {
+    dropdownPairs.forEach(p => {
+      const m = document.getElementById(p.menu);
+      if (m) m.classList.remove("is-open");
+    });
+  });
+
+  // Wallet Modal
+  const walletBtn = document.getElementById("wallet-connect-btn");
+  const walletModal = document.getElementById("wallet-modal");
+  const closeWallet = document.getElementById("close-wallet-modal");
+  const walletLabel = document.getElementById("wallet-btn-label");
+
+  if (walletBtn && walletModal) {
+    walletBtn.addEventListener("click", () => walletModal.classList.add("is-open"));
+    if (closeWallet) closeWallet.addEventListener("click", () => walletModal.classList.remove("is-open"));
+    walletModal.addEventListener("click", (e) => {
+      if (e.target === walletModal) walletModal.classList.remove("is-open");
+    });
+
+    document.querySelectorAll(".wallet-option").forEach(opt => {
+      opt.addEventListener("click", () => {
+        const name = opt.getAttribute("data-wallet");
+        if (walletLabel) walletLabel.textContent = name + " (7x...4b)";
+        walletModal.classList.remove("is-open");
+        showToast("Connected to " + name + " Wallet!");
+      });
+    });
+  }
+
+  // Search Modal
+  const searchTrigger = document.getElementById("search-trigger");
+  const searchModal = document.getElementById("search-modal");
+  const closeSearch = document.getElementById("close-search-modal");
+  const searchInput = document.getElementById("search-input");
+
+  if (searchTrigger && searchModal) {
+    searchTrigger.addEventListener("click", () => {
+      searchModal.classList.add("is-open");
+      if (searchInput) searchInput.focus();
+    });
+    if (closeSearch) closeSearch.addEventListener("click", () => searchModal.classList.remove("is-open"));
+    searchModal.addEventListener("click", (e) => {
+      if (e.target === searchModal) searchModal.classList.remove("is-open");
+    });
+    document.addEventListener("keydown", (e) => {
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k") {
+        e.preventDefault();
+        searchModal.classList.add("is-open");
+        if (searchInput) searchInput.focus();
+      }
+      if (e.key === "Escape") {
+        if (searchModal) searchModal.classList.remove("is-open");
+        if (walletModal) walletModal.classList.remove("is-open");
+      }
+    });
+  }
+
+  // Mobile Drawer
+  const mobileBtn = document.getElementById("mobile-menu-btn");
+  const drawer = document.getElementById("mobile-drawer");
+  const closeDrawer = document.getElementById("close-mobile-drawer");
+
+  if (mobileBtn && drawer) {
+    mobileBtn.addEventListener("click", () => drawer.classList.add("is-open"));
+    if (closeDrawer) closeDrawer.addEventListener("click", () => drawer.classList.remove("is-open"));
+  }
+})();
+</script>
+
+  
+<script>
+(function() {
+  const copyBtn = document.getElementById("copy-woop-ca");
+  if (copyBtn) {
+    copyBtn.addEventListener("click", () => {
+      navigator.clipboard.writeText("live now on pump.fun");
+      window.woopToast("Contract address copied!");
+    });
+  }
+})();
+</script>
+
+</body>
+</html>
