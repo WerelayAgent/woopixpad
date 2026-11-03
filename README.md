@@ -4,9 +4,9 @@
   <img src="brand/woopixpad.webp" alt="woopixpad Logo" width="360" />
   <p><strong>The premier multi-pair Solana launchpad with on-chain hold-to-earn fee sharing, fair blocks, and anti-sniper protection.</strong></p>
 
-  [![Contract Address](https://img.shields.io/badge/Contract-live%20now%20on%20pump.fun-orange?style=for-the-badge&logo=solana)](https://pump.fun/)
+  [![Contract Address](https://img.shields.io/badge/Contract-DPwj48...pump-orange?style=for-the-badge&logo=solana)](https://pump.fun/coin/DPwj48NgpFgvg44Hxc3mXXzSDmvxx2cc5p6qC3Uypump)
   [![Ticker](https://img.shields.io/badge/Ticker-%24WOOPIXPAD-blue?style=for-the-badge)](#)
-  [![Platform](https://img.shields.io/badge/Venue-pump.fun-brightgreen?style=for-the-badge)](https://pump.fun/)
+  [![Platform](https://img.shields.io/badge/Venue-pump.fun-brightgreen?style=for-the-badge)](https://pump.fun/coin/DPwj48NgpFgvg44Hxc3mXXzSDmvxx2cc5p6qC3Uypump)
 </div>
 
 ---
@@ -30,8 +30,8 @@
 | **Token Name** | **woopixpad** |
 | **Ticker** | **$WOOPIXPAD** |
 | **Network** | Solana (Mainnet) |
-| **Contract Address (CA)** | `live now on pump.fun` |
-| **Launch Venue** | [pump.fun](https://pump.fun/) |
+| **Contract Address (CA)** | `DPwj48NgpFgvg44Hxc3mXXzSDmvxx2cc5p6qC3Uypump` |
+| **Launch Venue** | [pump.fun](https://pump.fun/coin/DPwj48NgpFgvg44Hxc3mXXzSDmvxx2cc5p6qC3Uypump) |
 | **Official X** | [@woopixpad](https://x.com/woopixpad) |
 
 ---
