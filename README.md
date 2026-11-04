@@ -4,9 +4,9 @@
   <img src="brand/woopixpad.webp" alt="woopixpad Logo" width="360" />
   <p><strong>The premier multi-pair Robinhood Chain launchpad with on-chain hold-to-earn fee sharing, fair blocks, and anti-sniper protection.</strong></p>
 
-  [![Contract Address](https://img.shields.io/badge/Contract-Robinhood%20Chain-green?style=for-the-badge)](https://explorer.robinhood.com/)
+  [![Contract Address](https://img.shields.io/badge/Contract-0xB630F34...f33C-green?style=for-the-badge)](https://explorer.robinhood.com/address/0xB630F34ecbc9EfED9bD82e828894a2818250f33C)
   [![Ticker](https://img.shields.io/badge/Ticker-%24WOOPIXPAD-blue?style=for-the-badge)](#)
-  [![Platform](https://img.shields.io/badge/Venue-Robinhood%20Chain%20DEX-brightgreen?style=for-the-badge)](https://explorer.robinhood.com/)
+  [![Platform](https://img.shields.io/badge/Venue-Robinhood%20Chain%20DEX-brightgreen?style=for-the-badge)](https://explorer.robinhood.com/address/0xB630F34ecbc9EfED9bD82e828894a2818250f33C)
 </div>
 
 ---
@@ -30,7 +30,7 @@
 | **Token Name** | **woopixpad** |
 | **Ticker** | **$WOOPIXPAD** |
 | **Network** | Robinhood Chain (EVM L2) |
-| **Contract Address (CA)** | `live now on Robinhood Chain` |
+| **Contract Address (CA)** | `0xB630F34ecbc9EfED9bD82e828894a2818250f33C` |
 | **Launch Venue** | [Robinhood Chain DEX](https://explorer.robinhood.com/) |
 | **Official X** | [@woopixpad](https://x.com/woopixpad) |
 
