@@ -2,14 +2,15 @@
   "name": "woopixpad",
   "version": "1.0.0",
   "private": true,
-  "description": "woopixpad - Multi-pair Solana launchpad with on-chain hold-to-earn fee sharing.",
+  "description": "woopixpad - Multi-pair Robinhood Chain launchpad with on-chain hold-to-earn fee sharing.",
   "scripts": {
     "start": "npx serve ."
   },
   "keywords": [
     "woopixpad",
-    "solana",
-    "pumpfun",
+    "robinhood",
+    "chain",
+    "eth",
     "launchpad",
     "hold-to-earn",
     "multi-pair"

@@ -4,9 +4,9 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Creator Portal — woopixpad</title>
-  <meta name="description" content="Manage your launched tokens, track volume, and collect creator fees on Solana."/>
+  <meta name="description" content="Manage your launched tokens, track volume, and collect creator fees on Robinhood Chain."/>
   <meta property="og:title" content="Creator Portal — woopixpad"/>
-  <meta property="og:description" content="Manage your launched tokens, track volume, and collect creator fees on Solana."/>
+  <meta property="og:description" content="Manage your launched tokens, track volume, and collect creator fees on Robinhood Chain."/>
   <meta property="og:site_name" content="woopixpad"/>
   <meta property="og:image" content="/og.png"/>
   <meta name="twitter:card" content="summary_large_image"/>
@@ -157,7 +157,7 @@
             </a>
             <a href="/pairs" class="flex items-center gap-3 p-2.5 rounded-xl hover:bg-white/[0.06] transition-colors">
               <span class="grid size-9 place-items-center rounded-lg bg-white/5 text-silver-300 font-mono text-sm">🔗</span>
-              <div><p class="text-sm font-semibold text-silver-50">Multi-Pairs</p><p class="text-xs text-silver-400">Coins paired with SOL, BTC, Gold, Memes</p></div>
+              <div><p class="text-sm font-semibold text-silver-50">Multi-Pairs</p><p class="text-xs text-silver-400">Coins paired with ETH, BTC, Gold, Memes</p></div>
             </a>
             <a href="/leaderboard" class="flex items-center gap-3 p-2.5 rounded-xl hover:bg-white/[0.06] transition-colors">
               <span class="grid size-9 place-items-center rounded-lg bg-white/5 text-silver-300 font-mono text-sm">🏆</span>
@@ -266,7 +266,7 @@
   <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
     <div class="glass p-5 rounded-2xl border border-white/10">
       <span class="text-xs text-silver-500">Unclaimed Creator Fees</span>
-      <p class="text-2xl font-bold text-mint-300 font-mono mt-1" id="creator-fees">14.85 SOL</p>
+      <p class="text-2xl font-bold text-mint-300 font-mono mt-1" id="creator-fees">0.85 ETH</p>
       <button type="button" id="claim-creator-btn" class="mt-3 w-full h-8 rounded-lg bg-white/10 hover:bg-white/15 text-xs font-semibold text-silver-100 transition-colors">
         Claim Creator Fees
       </button>
@@ -286,7 +286,7 @@
   <div class="glass rounded-2xl border border-white/10 p-6 text-xs text-silver-400">
     <h3 class="text-sm font-semibold text-silver-100 mb-2">Ticker Protection Program</h3>
     <p class="leading-relaxed">
-      Whenever copycat tokens launch using your exact ticker symbol, a 1.0 SOL anti-piracy penalty is automatically routed straight to your creator wallet on Solana.
+      Whenever copycat tokens launch using your exact ticker symbol, a 0.05 ETH anti-piracy penalty is automatically routed straight to your creator wallet on Robinhood Chain.
     </p>
   </div>
 </div>
@@ -305,10 +305,10 @@
       <p class="text-xs text-silver-500">Our own curve and pool: the woopixpad curve and WAMM. Multi-pair fee sharing split on-chain.</p>
       <div class="flex flex-wrap items-center gap-2 pt-1 text-xs">
         <span class="text-silver-500 font-medium">Official CA:</span>
-        <span class="font-mono text-silver-300 bg-white/[0.04] px-2.5 py-1 rounded-lg border border-white/5 select-all text-[11px]">DPwj48NgpFgvg44Hxc3mXXzSDmvxx2cc5p6qC3Uypump</span>
-        <button type="button" class="text-mint-300 hover:text-white text-[11px] font-medium" onclick="navigator.clipboard.writeText('DPwj48NgpFgvg44Hxc3mXXzSDmvxx2cc5p6qC3Uypump');if(window.woopToast)window.woopToast('Contract address copied!');">Copy</button>
+        <span class="font-mono text-silver-300 bg-white/[0.04] px-2.5 py-1 rounded-lg border border-white/5 select-all text-[11px]">live now on Robinhood Chain</span>
+        <button type="button" class="text-mint-300 hover:text-white text-[11px] font-medium" onclick="navigator.clipboard.writeText('live now on Robinhood Chain');if(window.woopToast)window.woopToast('Contract address copied!');">Copy</button>
         <span class="text-silver-600">·</span>
-        <a href="https://pump.fun/coin/DPwj48NgpFgvg44Hxc3mXXzSDmvxx2cc5p6qC3Uypump" target="_blank" rel="noreferrer" class="text-silver-400 hover:text-silver-100 text-[11px]">pump.fun ↗</a>
+        <a href="https://explorer.robinhood.com/" target="_blank" rel="noreferrer" class="text-silver-400 hover:text-silver-100 text-[11px]">Robinhood Chain Explorer ↗</a>
       </div>
     </div>
     <nav class="flex flex-wrap gap-x-6 gap-y-2 text-sm text-silver-400">
@@ -327,29 +327,29 @@
 <div id="wallet-modal" class="woop-modal-overlay">
   <div class="woop-modal-card p-6">
     <div class="flex items-center justify-between pb-4 border-b border-white/10">
-      <h3 class="text-base font-semibold text-silver-50">Connect a Solana Wallet</h3>
+      <h3 class="text-base font-semibold text-silver-50">Connect a Web3 Wallet</h3>
       <button id="close-wallet-modal" class="text-silver-400 hover:text-white text-lg leading-none">&times;</button>
     </div>
-    <p class="mt-3 text-xs text-silver-400">Select your preferred Solana wallet to trade, launch tokens, or claim hold-to-earn rewards.</p>
+    <p class="mt-3 text-xs text-silver-400">Select your preferred Robinhood Chain / EVM wallet to trade, launch tokens, or claim hold-to-earn rewards.</p>
     <div class="mt-4 flex flex-col gap-2.5">
-      <button class="wallet-option flex items-center justify-between p-3 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] transition-colors border border-white/5" data-wallet="Phantom">
+      <button class="wallet-option flex items-center justify-between p-3 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] transition-colors border border-white/5" data-wallet="Robinhood Wallet">
         <span class="flex items-center gap-3">
           <span class="grid size-8 place-items-center rounded-lg bg-[#ab9ff2]/15 text-[#ab9ff2] font-bold text-xs">P</span>
-          <span class="text-sm font-medium text-silver-100">Phantom</span>
+          <span class="text-sm font-medium text-silver-100">Robinhood Wallet</span>
         </span>
         <span class="text-xs text-silver-500">Popular</span>
       </button>
-      <button class="wallet-option flex items-center justify-between p-3 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] transition-colors border border-white/5" data-wallet="Solflare">
+      <button class="wallet-option flex items-center justify-between p-3 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] transition-colors border border-white/5" data-wallet="MetaMask">
         <span class="flex items-center gap-3">
           <span class="grid size-8 place-items-center rounded-lg bg-[#f39c12]/15 text-[#f39c12] font-bold text-xs">S</span>
-          <span class="text-sm font-medium text-silver-100">Solflare</span>
+          <span class="text-sm font-medium text-silver-100">MetaMask</span>
         </span>
-        <span class="text-xs text-silver-500">Solana native</span>
+        <span class="text-xs text-silver-500">EVM standard</span>
       </button>
-      <button class="wallet-option flex items-center justify-between p-3 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] transition-colors border border-white/5" data-wallet="Backpack">
+      <button class="wallet-option flex items-center justify-between p-3 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] transition-colors border border-white/5" data-wallet="Coinbase Wallet">
         <span class="flex items-center gap-3">
           <span class="grid size-8 place-items-center rounded-lg bg-[#e74c3c]/15 text-[#e74c3c] font-bold text-xs">B</span>
-          <span class="text-sm font-medium text-silver-100">Backpack</span>
+          <span class="text-sm font-medium text-silver-100">Coinbase Wallet</span>
         </span>
         <span class="text-xs text-silver-500">xNFT</span>
       </button>
@@ -473,7 +473,7 @@
     document.querySelectorAll(".wallet-option").forEach(opt => {
       opt.addEventListener("click", () => {
         const name = opt.getAttribute("data-wallet");
-        if (walletLabel) walletLabel.textContent = name + " (7x...4b)";
+        if (walletLabel) walletLabel.textContent = name + " (0x7a...4bf2)";
         walletModal.classList.remove("is-open");
         showToast("Connected to " + name + " Wallet!");
       });
@@ -530,8 +530,8 @@
       claimBtn.textContent = "Claiming...";
       setTimeout(() => {
         claimBtn.textContent = "Claimed";
-        document.getElementById("creator-fees").textContent = "0.00 SOL";
-        window.woopToast("14.85 SOL creator fees sent to your wallet!");
+        document.getElementById("creator-fees").textContent = "0.00 ETH";
+        window.woopToast("0.85 ETH creator fees sent to your wallet!");
       }, 1200);
     });
   }

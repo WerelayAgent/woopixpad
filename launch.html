@@ -4,9 +4,9 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Launch a coin — woopixpad</title>
-  <meta name="description" content="Launch your multi-pair coin on Solana with Fair Blocks and hold-to-earn rewards."/>
+  <meta name="description" content="Launch your multi-pair coin on Robinhood Chain with Fair Blocks and hold-to-earn rewards."/>
   <meta property="og:title" content="Launch a coin — woopixpad"/>
-  <meta property="og:description" content="Launch your multi-pair coin on Solana with Fair Blocks and hold-to-earn rewards."/>
+  <meta property="og:description" content="Launch your multi-pair coin on Robinhood Chain with Fair Blocks and hold-to-earn rewards."/>
   <meta property="og:site_name" content="woopixpad"/>
   <meta property="og:image" content="/og.png"/>
   <meta name="twitter:card" content="summary_large_image"/>
@@ -157,7 +157,7 @@
             </a>
             <a href="/pairs" class="flex items-center gap-3 p-2.5 rounded-xl hover:bg-white/[0.06] transition-colors">
               <span class="grid size-9 place-items-center rounded-lg bg-white/5 text-silver-300 font-mono text-sm">🔗</span>
-              <div><p class="text-sm font-semibold text-silver-50">Multi-Pairs</p><p class="text-xs text-silver-400">Coins paired with SOL, BTC, Gold, Memes</p></div>
+              <div><p class="text-sm font-semibold text-silver-50">Multi-Pairs</p><p class="text-xs text-silver-400">Coins paired with ETH, BTC, Gold, Memes</p></div>
             </a>
             <a href="/leaderboard" class="flex items-center gap-3 p-2.5 rounded-xl hover:bg-white/[0.06] transition-colors">
               <span class="grid size-9 place-items-center rounded-lg bg-white/5 text-silver-300 font-mono text-sm">🏆</span>
@@ -253,11 +253,11 @@
   <div class="mb-10 text-center sm:text-left">
     <div class="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium neon text-silver-200 mb-3">
       <span class="size-1.5 rounded-full bg-mint-400 animate-pulse"></span>
-      Solana Multi-Pair Launchpad
+      Robinhood Chain Multi-Pair Launchpad
     </div>
-    <h1 class="text-3xl font-bold tracking-tight text-silver-50 sm:text-5xl font-display">Launch a coin on Solana</h1>
+    <h1 class="text-3xl font-bold tracking-tight text-silver-50 sm:text-5xl font-display">Launch a coin on Robinhood Chain</h1>
     <p class="mt-2 text-base text-silver-400 max-w-2xl">
-      Every trade pays the people holding the coin. Pair with SOL, Bitcoin, Gold, USD1 or Memes. Zero snipers via 60s Fair Blocks.
+      Every trade pays the people holding the coin. Pair with ETH, Bitcoin, Gold, USD1 or Memes. Zero snipers via 60s Fair Blocks.
     </p>
   </div>
 
@@ -277,11 +277,11 @@
         </div>
         
         <div class="grid grid-cols-2 sm:grid-cols-3 gap-3" id="pair-selector">
-          <button type="button" class="pair-card flex items-center gap-3 p-3 rounded-xl border border-white/20 bg-white/[0.08] text-left transition-all active:scale-[0.98]" data-pair="SOL" data-name="Solana" data-symbol="SOL">
-            <img src="/pairs/So11111111111111111111111111111111111111112.webp" alt="SOL" class="size-8 rounded-full object-cover"/>
+          <button type="button" class="pair-card flex items-center gap-3 p-3 rounded-xl border border-white/20 bg-white/[0.08] text-left transition-all active:scale-[0.98]" data-pair="ETH" data-name="Ethereum" data-symbol="ETH">
+            <img src="/pairs/So11111111111111111111111111111111111111112.webp" alt="ETH" class="size-8 rounded-full object-cover"/>
             <div>
-              <p class="text-sm font-semibold text-silver-50 leading-tight">SOL</p>
-              <p class="text-[11px] text-silver-400">Solana</p>
+              <p class="text-sm font-semibold text-silver-50 leading-tight">ETH</p>
+              <p class="text-[11px] text-silver-400">Ethereum</p>
             </div>
           </button>
 
@@ -460,15 +460,15 @@
         <div class="flex flex-col gap-3">
           <div class="relative flex items-center">
             <input type="number" id="dev-buy-input" placeholder="0.0" step="0.1" min="0" class="w-full h-12 rounded-xl bg-white/[0.04] border border-white/10 pl-4 pr-16 text-base text-silver-100 placeholder:text-silver-600 outline-none focus:border-white/25"/>
-            <span id="dev-buy-currency" class="absolute right-4 text-xs font-semibold text-silver-400 font-mono">SOL</span>
+            <span id="dev-buy-currency" class="absolute right-4 text-xs font-semibold text-silver-400 font-mono">ETH</span>
           </div>
 
           <div class="flex flex-wrap gap-2" id="quick-buy-chips">
             <button type="button" class="quick-chip px-3 py-1.5 rounded-lg text-xs font-medium bg-white/[0.08] text-silver-200 hover:bg-white/[0.12] transition-colors" data-amt="0">None</button>
-            <button type="button" class="quick-chip px-3 py-1.5 rounded-lg text-xs font-medium bg-white/[0.04] text-silver-400 hover:bg-white/[0.08] transition-colors" data-amt="0.5">0.5 SOL</button>
-            <button type="button" class="quick-chip px-3 py-1.5 rounded-lg text-xs font-medium bg-white/[0.04] text-silver-400 hover:bg-white/[0.08] transition-colors" data-amt="1">1.0 SOL</button>
-            <button type="button" class="quick-chip px-3 py-1.5 rounded-lg text-xs font-medium bg-white/[0.04] text-silver-400 hover:bg-white/[0.08] transition-colors" data-amt="2">2.0 SOL</button>
-            <button type="button" class="quick-chip px-3 py-1.5 rounded-lg text-xs font-medium bg-white/[0.04] text-silver-400 hover:bg-white/[0.08] transition-colors" data-amt="5">5.0 SOL</button>
+            <button type="button" class="quick-chip px-3 py-1.5 rounded-lg text-xs font-medium bg-white/[0.04] text-silver-400 hover:bg-white/[0.08] transition-colors" data-amt="0.01">0.01 ETH</button>
+            <button type="button" class="quick-chip px-3 py-1.5 rounded-lg text-xs font-medium bg-white/[0.04] text-silver-400 hover:bg-white/[0.08] transition-colors" data-amt="0.05">0.05 ETH</button>
+            <button type="button" class="quick-chip px-3 py-1.5 rounded-lg text-xs font-medium bg-white/[0.04] text-silver-400 hover:bg-white/[0.08] transition-colors" data-amt="0.1">0.1 ETH</button>
+            <button type="button" class="quick-chip px-3 py-1.5 rounded-lg text-xs font-medium bg-white/[0.04] text-silver-400 hover:bg-white/[0.08] transition-colors" data-amt="0.5">0.5 ETH</button>
           </div>
         </div>
       </section>
@@ -476,10 +476,10 @@
       <!-- Submit Button -->
       <div>
         <button type="button" id="submit-launch-btn" class="w-full h-14 rounded-2xl bg-silver-50 text-ink-950 font-bold text-base hover:shadow-iri active:scale-[0.99] transition-all flex items-center justify-center gap-2">
-          <span>🚀 Launch Coin on Solana</span>
+          <span>🚀 Launch Coin on Robinhood Chain</span>
         </button>
         <p class="text-center text-[11px] text-silver-500 mt-2.5">
-          Zero platform fee. Arweave storage free. Standard Solana gas (~0.005 SOL).
+          Zero platform fee. Arweave storage free. Standard Robinhood Chain gas (~0.0001 ETH).
         </p>
       </div>
 
@@ -503,7 +503,7 @@
           <div class="min-w-0 flex-1">
             <h3 id="card-preview-name" class="text-lg font-bold text-silver-50 truncate font-display">Quantum Cat</h3>
             <p id="card-preview-ticker" class="text-xs font-semibold text-mint-300 font-mono">$QCAT</p>
-            <p id="card-preview-pair-text" class="text-xs text-silver-400 mt-1">Paired with <span class="font-medium text-silver-200">Solana (SOL)</span></p>
+            <p id="card-preview-pair-text" class="text-xs text-silver-400 mt-1">Paired with <span class="font-medium text-silver-200">Ethereum (ETH)</span></p>
           </div>
         </div>
 
@@ -547,8 +547,8 @@
             <dd class="text-mint-300 font-medium">Free (Sponsored)</dd>
           </div>
           <div class="flex justify-between">
-            <dt>Est. Solana Network Fee</dt>
-            <dd class="text-silver-200 font-mono">~0.005 SOL</dd>
+            <dt>Est. Robinhood Chain Network Fee</dt>
+            <dd class="text-silver-200 font-mono">~0.0001 ETH</dd>
           </div>
           <div class="flex justify-between">
             <dt>Fair Block Duration</dt>
@@ -556,7 +556,7 @@
           </div>
           <div class="flex justify-between pt-2 border-t border-white/5 text-sm font-semibold text-silver-100">
             <dt>Initial Buy Total</dt>
-            <dd id="manifest-total" class="font-mono text-silver-50">0 SOL</dd>
+            <dd id="manifest-total" class="font-mono text-silver-50">0 ETH</dd>
           </div>
         </dl>
       </div>
@@ -579,10 +579,10 @@
       <p class="text-xs text-silver-500">Our own curve and pool: the woopixpad curve and WAMM. Multi-pair fee sharing split on-chain.</p>
       <div class="flex flex-wrap items-center gap-2 pt-1 text-xs">
         <span class="text-silver-500 font-medium">Official CA:</span>
-        <span class="font-mono text-silver-300 bg-white/[0.04] px-2.5 py-1 rounded-lg border border-white/5 select-all text-[11px]">DPwj48NgpFgvg44Hxc3mXXzSDmvxx2cc5p6qC3Uypump</span>
-        <button type="button" class="text-mint-300 hover:text-white text-[11px] font-medium" onclick="navigator.clipboard.writeText('DPwj48NgpFgvg44Hxc3mXXzSDmvxx2cc5p6qC3Uypump');if(window.woopToast)window.woopToast('Contract address copied!');">Copy</button>
+        <span class="font-mono text-silver-300 bg-white/[0.04] px-2.5 py-1 rounded-lg border border-white/5 select-all text-[11px]">live now on Robinhood Chain</span>
+        <button type="button" class="text-mint-300 hover:text-white text-[11px] font-medium" onclick="navigator.clipboard.writeText('live now on Robinhood Chain');if(window.woopToast)window.woopToast('Contract address copied!');">Copy</button>
         <span class="text-silver-600">·</span>
-        <a href="https://pump.fun/coin/DPwj48NgpFgvg44Hxc3mXXzSDmvxx2cc5p6qC3Uypump" target="_blank" rel="noreferrer" class="text-silver-400 hover:text-silver-100 text-[11px]">pump.fun ↗</a>
+        <a href="https://explorer.robinhood.com/" target="_blank" rel="noreferrer" class="text-silver-400 hover:text-silver-100 text-[11px]">Robinhood Chain Explorer ↗</a>
       </div>
     </div>
     <nav class="flex flex-wrap gap-x-6 gap-y-2 text-sm text-silver-400">
@@ -601,29 +601,29 @@
 <div id="wallet-modal" class="woop-modal-overlay">
   <div class="woop-modal-card p-6">
     <div class="flex items-center justify-between pb-4 border-b border-white/10">
-      <h3 class="text-base font-semibold text-silver-50">Connect a Solana Wallet</h3>
+      <h3 class="text-base font-semibold text-silver-50">Connect a Web3 Wallet</h3>
       <button id="close-wallet-modal" class="text-silver-400 hover:text-white text-lg leading-none">&times;</button>
     </div>
-    <p class="mt-3 text-xs text-silver-400">Select your preferred Solana wallet to trade, launch tokens, or claim hold-to-earn rewards.</p>
+    <p class="mt-3 text-xs text-silver-400">Select your preferred Robinhood Chain / EVM wallet to trade, launch tokens, or claim hold-to-earn rewards.</p>
     <div class="mt-4 flex flex-col gap-2.5">
-      <button class="wallet-option flex items-center justify-between p-3 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] transition-colors border border-white/5" data-wallet="Phantom">
+      <button class="wallet-option flex items-center justify-between p-3 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] transition-colors border border-white/5" data-wallet="Robinhood Wallet">
         <span class="flex items-center gap-3">
           <span class="grid size-8 place-items-center rounded-lg bg-[#ab9ff2]/15 text-[#ab9ff2] font-bold text-xs">P</span>
-          <span class="text-sm font-medium text-silver-100">Phantom</span>
+          <span class="text-sm font-medium text-silver-100">Robinhood Wallet</span>
         </span>
         <span class="text-xs text-silver-500">Popular</span>
       </button>
-      <button class="wallet-option flex items-center justify-between p-3 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] transition-colors border border-white/5" data-wallet="Solflare">
+      <button class="wallet-option flex items-center justify-between p-3 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] transition-colors border border-white/5" data-wallet="MetaMask">
         <span class="flex items-center gap-3">
           <span class="grid size-8 place-items-center rounded-lg bg-[#f39c12]/15 text-[#f39c12] font-bold text-xs">S</span>
-          <span class="text-sm font-medium text-silver-100">Solflare</span>
+          <span class="text-sm font-medium text-silver-100">MetaMask</span>
         </span>
-        <span class="text-xs text-silver-500">Solana native</span>
+        <span class="text-xs text-silver-500">EVM standard</span>
       </button>
-      <button class="wallet-option flex items-center justify-between p-3 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] transition-colors border border-white/5" data-wallet="Backpack">
+      <button class="wallet-option flex items-center justify-between p-3 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] transition-colors border border-white/5" data-wallet="Coinbase Wallet">
         <span class="flex items-center gap-3">
           <span class="grid size-8 place-items-center rounded-lg bg-[#e74c3c]/15 text-[#e74c3c] font-bold text-xs">B</span>
-          <span class="text-sm font-medium text-silver-100">Backpack</span>
+          <span class="text-sm font-medium text-silver-100">Coinbase Wallet</span>
         </span>
         <span class="text-xs text-silver-500">xNFT</span>
       </button>
@@ -747,7 +747,7 @@
     document.querySelectorAll(".wallet-option").forEach(opt => {
       opt.addEventListener("click", () => {
         const name = opt.getAttribute("data-wallet");
-        if (walletLabel) walletLabel.textContent = name + " (7x...4b)";
+        if (walletLabel) walletLabel.textContent = name + " (0x7a...4bf2)";
         walletModal.classList.remove("is-open");
         showToast("Connected to " + name + " Wallet!");
       });
@@ -815,8 +815,8 @@
   const previewImg = document.getElementById("preview-img");
   const cardPreviewImg = document.getElementById("card-preview-img");
 
-  let currentPair = "SOL";
-  let currentPairName = "Solana";
+  let currentPair = "ETH";
+  let currentPairName = "Ethereum";
 
   // Name & Symbol binding
   if (nameInput) {
@@ -939,10 +939,10 @@
         return;
       }
       submitBtn.disabled = true;
-      submitBtn.innerHTML = "<span>⏳ Deploying on Solana...</span>";
+      submitBtn.innerHTML = "<span>⏳ Deploying on Robinhood Chain...</span>";
       setTimeout(() => {
         submitBtn.disabled = false;
-        submitBtn.innerHTML = "<span>🚀 Launch Coin on Solana</span>";
+        submitBtn.innerHTML = "<span>🚀 Launch Coin on Robinhood Chain</span>";
         window.woopToast(`Success! $${symbol} launched paired with ${currentPair}!`);
       }, 1500);
     });
